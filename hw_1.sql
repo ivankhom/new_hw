@@ -3,6 +3,12 @@ id SERIAL primary key,
 name VARCHAR(30) not null 
 );
 
+create table if  not exists album(
+id serial primary key,
+name VARCHAR(30) not null,
+issue_date DATE not null
+);
+
 create table if not exists song_list(
 id serial primary key,
 name VARCHAR(25) not null,
@@ -21,11 +27,6 @@ id_genre INTEGER references genre(id),
 primary key(id_singer, id_genre)
 );
 
-create table if  not exists album(
-id serial primary key,
-name VARCHAR(30) not null,
-issue_date DATE not null
-);
 
 create table if  not exists album_singer(
 album_id INTEGER references album(id),
